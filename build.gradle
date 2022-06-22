@@ -1,0 +1,32 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.7.0'
+    id 'org.openjfx.javafxplugin' version '0.0.8'
+    id 'application'
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "11"
+}
+
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "11"
+}
+javafx {
+    version = "11.0.2"
+    modules = ['javafx.controls', 'javafx.graphics']
+}
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.seleniumhq.selenium:selenium-java:4.2.2'
+
+    // Align versions of all Kotlin components
+    implementation platform('org.jetbrains.kotlin:kotlin-bom')
+
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
+
+    // Use the tornadofx
+    implementation "no.tornado:tornadofx:1.7.20"
+}
